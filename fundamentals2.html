@@ -1,0 +1,44 @@
+<!--Fundamentals2.html-->
+<!--Code for fundamentals assignment 2.-->
+<!--CSC 362-->
+<!--Dr. Peck-->
+
+<html>
+
+    <style>
+        circle {
+            fill: red;
+            stroke: black;
+            stroke-width: 1px;
+        }
+    </style>
+
+    <body>
+        <svg = id="chart" width="1000" height="300"></svg>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script>
+            const array = [92, 56, 14, 73, 22, 38, 93, 45, 55];
+            const sortedArray = [...array]; // Copy array
+            sortedArray.sort(); // Sort copied array
+            // ^ uses "..." as a spread operator, which basically says "use everthing here"
+            
+            d3.select("#chart")
+            .selectAll("circle")
+            .data(array)
+            .enter()
+            .append("circle")
+                .attr("r", d => d/2)
+                .attr("cy", 100)
+                .attr("cx", d => array.indexOf(d) * 100 + 50)
+
+            setTimeout(function() {
+            d3.select("#chart").selectAll("circle")
+            .data(array)
+            .transition().duration(1500)
+            .attr("r", d => d/2)
+            .attr("cy", 100)
+            .attr("cx", d => sortedArray.indexOf(d) * 100 + 50)
+            }, 2000)
+        </script>
+    </body>
+</html>
