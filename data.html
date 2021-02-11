@@ -1,0 +1,60 @@
+<!--
+ID 519
+-->
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Set up basic webpage structure -->
+  <div id="header"></div>
+  <div id="nominal"></div>
+  <div id="ordinal"></div>
+  <div id="interval"></div>
+  <div id="ratio"></div>
+
+  <style>
+    .red {
+        color: white;
+        background-color: #e41a1c;
+    }
+    .green {
+        color: #4daf4a;
+    }
+    .blue {
+        color: white;
+        background-color: #377eb8;
+    }
+    .purple {
+        color: #984ea3;
+    }
+    .first {
+        color: darkolivegreen
+    }
+    .last {
+        color: red
+    }
+  </style>
+
+  <script>
+    //your code goes here
+    const classes = ["first", "green", "purple", "blue", "last"]
+    d3.select("div").classed("first", true).append("h1").text("D3 Append Practice Activity")
+    
+    d3.select("#nominal").classed("blue", true).append("h1").text("Nominal")
+    d3.select("#nominal").append("p")
+    .text("This data type is usually collections of names or words used as data values. Example: favorite fruits -> Apples, Bananas, Oranges")
+
+    d3.select("#interval").classed("green", true).append("h1").text("Interval")
+    d3.select("#interval").append("p")
+    .text("This data type is usually some sort of number values which are evenly spaced apart. Example: temperatures")
+
+    d3.select("#ordinal").classed("last", true).append("h1").text("Ordinal")
+    d3.select("#ordinal").append("p")
+    .text("This data type is usually ranking systems or selection of a where in a specific order something belongs. Example: satisfaction on a scale of 1-5")
+    
+    d3.select("#ratio").classed("red", true).append("h1").text("Ratio")
+    d3.select("#ratio").append("p")
+    .text("This data type is any number absolute number values. These value can range from an absolute zero to any value. Example: total likes on a social media post")
+
+  </script>
+
+</body>
