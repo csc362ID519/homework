@@ -1,0 +1,102 @@
+<!-- Skeleton file downloaded from Moodle -->
+<!-- CSC 362, Dr. Peck -->
+<!-- ID 519 -->
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <style>
+    * {
+      font-family: sans-serif;
+    }
+    .bar-chart {
+      border: solid 1px gray;
+    }
+    .bar {
+      fill: orange;
+    }
+    .label {
+      font-size: 9pt;
+    }
+    .category {
+      text-anchor: end;
+    }
+  </style>
+  <script>
+    //read in the data
+
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+
+
+    var title = d3.select("body").append("h1").text("Visual Search");
+
+    const numbers = [1,2,3,4,5,6,7,8,9]
+
+    const charts = [{key: "times", title: "Times", color: "blue"}]
+
+    const chart = {
+      width: 800,
+      height: 0, 
+      current: times[0]
+    }
+
+    // var div = d3.select("body").append("div").attr("id", "section")
+    //     .append("ul").selectAll("il").data(numbers).enter()
+    //     .append("li").text(function(d, i) {
+    //         return "Item " + (i + 1) + ": " + d;
+    //     })
+    //     .style("font-size", function(d, i) {
+    //         return ((i+2) * 5) + "pt";
+    //     });
+    // d3.select("div").append("p").text("Paragraph 2")
+    // const selection = d3.select("#section").selectAll("p").data(numbers)
+
+    // // selection.text(d => d)
+
+    // d3.select("body").select("div").selectAll("p").data(numbers)
+    //     .enter()
+    //     .append("p").text(d => d)
+    
+    // const newSelection = selection.enter()
+    // newSelection.append("p").text(d => d)
+
+    // var svg = d3.select("body").append("svg")
+    //   .attr("width", width + margin.left + margin.right)
+    //   .attr("height", height + margin.top + margin.bottom)
+    //   .attr("class", "bar-chart")
+    //   .append("g")
+    //   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    const times = [];
+
+    d3.select("body").append("p").text("This is a paragraph and such")
+
+    var data = d3.csv("dataFromClass.csv").then(data => {
+      data.forEach(d => {
+        times.push({
+          line: d.lines,
+          time: d.time,
+          highlight: d.highlight
+        });
+      });
+      init();
+    });
+
+    function init() {
+      chart.height = times.length * 21;
+      svg.attr("width", chart.width)
+        .attr("height, chart.height");
+
+      // setupView();
+    };
+
+    // function setupView() {
+
+    // }
+    console.log("hi");
+    console.log(times);
+
+    </script>
+
+</body>
